@@ -17,10 +17,17 @@ for(const file of commandFiles){//لوب لإيجاد الملفات التي ت
 
 client.once('ready', () => {//للتأكد من أن البوت متصل
     console.log('Encryption Bot is online!');//أمر طباعة لموجه الأوامر في حال اتصال البوت
+    client.user.setActivity('ciph_help', { type: 'PLAYING' });
 });
 
 try{
     client.on('message', message =>{//لتفعيل الأوامر
+        switch(message.content){
+            case '<@774726756258283600>':
+            case '<@!774726756258283600>':
+                message.channel.send("Hi! If you want to start using this bot, type 'ciph_help' for more information and read the instructions carefully.");
+                break;
+        }
         if(!message.content.startsWith(prefix) || message.author.bot) return;/*للتأكد من أن هذه الرسالة
             لم تصل عشوائيا من البوت*/ 
         const args = message.content.slice(prefix.length).split(' ');//المدخل المطلوب بعد الأمر (إن وجد)
