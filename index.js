@@ -2,6 +2,10 @@ const Discord = require('discord.js');//لمناداة مكتبة الديسكو
 
 const client = new Discord.Client();//للتعامل مع خصائص العميل (البوت)الموجود بمكتبة الديسكورد
 
+const DBL = require("dblapi.js");
+
+const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc3NDcyNjc1NjI1ODI4MzYwMCIsImJvdCI6dHJ1ZSwiaWF0IjoxNjA2OTIzMTkxfQ._-stNMd30ASiZ8TCrygU1ddk51sbFFXmsQHM3BcPOzY', client);
+
 const prefix = 'ciph_';//البادئة التي تفعل أوامر البوت، مبدئيا اخترت حرفا واحدا للتسهيل
 
 const fs = require('fs');//للتعامل مع الملفات خارج هذا الملف
@@ -16,6 +20,9 @@ for(const file of commandFiles){//لوب لإيجاد الملفات التي ت
 }
 
 client.once('ready', () => {//للتأكد من أن البوت متصل
+    setInterval(() => {
+        dbl.postStats(client.guilds.size, client.shards.Id, client.shards.total);
+    }, 1800000);
     console.log('Encryption Bot is online!');//أمر طباعة لموجه الأوامر في حال اتصال البوت
     client.user.setActivity('ciph_help', { type: 'PLAYING' });
 });
