@@ -30,6 +30,7 @@ client.once('ready', () => {//للتأكد من أن البوت متصل
         topgg.postStats(client.guilds.cache.size, client.shard.count, client.shard.ids);
     }, 1800000);
     console.log('Encryption Bot is online!');//أمر طباعة لموجه الأوامر في حال اتصال البوت
+    console.log(client.guilds.cache.size);
     client.user.setActivity('ciph_help', { type: 'PLAYING' });
 });
 
