@@ -390,7 +390,7 @@ module.exports = {
                         }
                     );
                 }else{
-                    message.channel.send("Please enter a number form 1 to 10!");
+                    message.channel.send("Please try again and enter a number from 1 to 10!");
                 }
             });
         }else{
