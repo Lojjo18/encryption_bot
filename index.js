@@ -2,9 +2,15 @@ const Discord = require('discord.js');//لمناداة مكتبة الديسكو
 
 const client = new Discord.Client();//للتعامل مع خصائص العميل (البوت)الموجود بمكتبة الديسكورد
 
+const config = require('./config.json');
+
+const token1 = config.discord;
+
 const DBL = require("dblapi.js");
 
-const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc3NDcyNjc1NjI1ODI4MzYwMCIsImJvdCI6dHJ1ZSwiaWF0IjoxNjA2OTIzMTkxfQ._-stNMd30ASiZ8TCrygU1ddk51sbFFXmsQHM3BcPOzY', client);
+const token2 = config.dbl
+
+const dbl = new DBL(token2);
 
 const prefix = 'ciph_';//البادئة التي تفعل أوامر البوت، مبدئيا اخترت حرفا واحدا للتسهيل
 
@@ -69,5 +75,5 @@ try{
     message.channel.send('The following error has occured:\n' + err);//إرسال الخطأ كرسالة
 };
 
-client.login('Nzc0NzI2NzU2MjU4MjgzNjAw.X6b-hA.KarDaFhMZ_GvINixJAz-bzMonFE');//تسجيل الدخول بالتوكن السري
+client.login(token1);//تسجيل الدخول بالتوكن السري
 //تنبيه: يمنع منعا باتا مشاركة التوكن مع أي شخص غير معني بتطوير البوت
