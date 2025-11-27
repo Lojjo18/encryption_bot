@@ -1,16 +1,16 @@
+const config = require('./config.json');
+
 const Discord = require('discord.js');//لمناداة مكتبة الديسكورد
 
 const client = new Discord.Client();//للتعامل مع خصائص العميل (البوت)الموجود بمكتبة الديسكورد
 
-const config = require('./config.json');
-
 const token1 = config.discord;
 
-const DBL = require("dblapi.js");
+const Topgg = require("@top-gg/sdk");
 
-const token2 = config.dbl
+const token2 = config.topgg
 
-const dbl = new DBL(token2);
+const topgg = new Topgg.Api(token2);
 
 const prefix = 'ciph_';//البادئة التي تفعل أوامر البوت، مبدئيا اخترت حرفا واحدا للتسهيل
 
@@ -27,7 +27,7 @@ for(const file of commandFiles){//لوب لإيجاد الملفات التي ت
 
 client.once('ready', () => {//للتأكد من أن البوت متصل
     setInterval(() => {
-        dbl.postStats(client.guilds.size, client.shards.Id, client.shards.total);
+        topgg.postStats(client.guilds.size, client.shards.Id, client.shards.total);
     }, 1800000);
     console.log('Encryption Bot is online!');//أمر طباعة لموجه الأوامر في حال اتصال البوت
     client.user.setActivity('ciph_help', { type: 'PLAYING' });

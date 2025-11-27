@@ -9,10 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@top-gg/sdk": "^3.1.6",
     "dblapi.js": "^2.4.1",
     "discord.js": "^12.4.1"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Lojjo18/encryption_bot.git"
