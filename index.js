@@ -6,11 +6,12 @@ const client = new Discord.Client();//للتعامل مع خصائص العمي�
 
 const token1 = config.discord;
 
-const Topgg = require("@top-gg/sdk");
+const { AutoPoster } = require('topgg-autoposter')
 
 const token2 = config.topgg
 
-const topgg = new Topgg.Api(token2);
+const poster = AutoPoster(token2, client) // your discord.js or eris client
+
 
 const prefix = 'ciph_';//البادئة التي تفعل أوامر البوت، مبدئيا اخترت حرفا واحدا للتسهيل
 
@@ -26,9 +27,9 @@ for(const file of commandFiles){//لوب لإيجاد الملفات التي ت
 }
 
 client.once('ready', () => {//للتأكد من أن البوت متصل
-    setInterval(() => {
-        topgg.postStats(client.guilds.cache.size, client.shard.count, client.shard.ids);
-    }, 1800000);
+    poster.on('posted', (stats) => { // ran when succesfully posted
+        console.log(`Posted stats to Top.gg | ${stats.serverCount} servers`)
+    })
     console.log('Encryption Bot is online!');//أمر طباعة لموجه الأوامر في حال اتصال البوت
     console.log(client.guilds.cache.size);
     client.user.setActivity('ciph_help', { type: 'PLAYING' });
