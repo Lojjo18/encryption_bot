@@ -12,7 +12,6 @@ const token2 = config.topgg
 
 const poster = AutoPoster(token2, client) // your discord.js or eris client
 
-
 const prefix = 'ciph_';//البادئة التي تفعل أوامر البوت، مبدئيا اخترت حرفا واحدا للتسهيل
 
 const fs = require('fs');//للتعامل مع الملفات خارج هذا الملف
