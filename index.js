@@ -27,7 +27,7 @@ for(const file of commandFiles){//لوب لإيجاد الملفات التي ت
 
 client.once('ready', () => {//للتأكد من أن البوت متصل
     setInterval(() => {
-        topgg.postStats(client.guilds.size, client.shards.Id, client.shards.total);
+        topgg.postStats(client.guilds.cache.size, client.shard.count, client.shard.ids);
     }, 1800000);
     console.log('Encryption Bot is online!');//أمر طباعة لموجه الأوامر في حال اتصال البوت
     client.user.setActivity('ciph_help', { type: 'PLAYING' });
